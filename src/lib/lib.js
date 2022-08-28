@@ -315,6 +315,46 @@ export const listen = function(selector, eventType, onEventFunction)
 		console.error("Missing something on listener...");
 		return false;
 	}
+	
+	// handle single HTMLElement
+	if(selector instanceof HTMLElement)
+	{
+		selector.addEventListener(eventType, onEventFunction);
+		return true;
+	}
+
+	// Handle multiple HTMLElements in an array
+	if(selector instanceof Array)
+	{
+		selector.forEach(s=>
+		{
+			if(s instanceof HTMLElement)
+			{
+				s.addEventListener(eventType, onEventFunction);
+			}
+			
+			if(s instanceof String)
+			{
+				let elements = document.querySelectorAll(s);
+				if(!elements)
+				{
+					console.error("Element not found, add listener failed...", s);
+					return false;
+				}
+
+				if(elements.length > 0)
+				{
+					for(let i = 0; i < elements.length; i++)
+					{
+						let e = elements[i];
+						e.addEventListener(eventType, onEventFunction);
+					}
+				}
+			}
+		});
+		
+		return true;
+	}
 
 	let elements = document.querySelectorAll(selector);
 	if(!elements)

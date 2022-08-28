@@ -2,3 +2,7 @@ node_modules/
 dist/
 dist.min/
 .idea/
+
+api.json
+api.config.json
+api/games/

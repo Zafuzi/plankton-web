@@ -7,16 +7,19 @@ export const redrawGamesList = function()
 	Micro.call({action: "getAllGames"}, function(response)
 	{
 		console.log(response);
-		let results = [];
-		Object.keys(response.data?.games).forEach(game =>
+		
+		r8_game.update(response.data?.games || [], function(instance, data)
 		{
-			results.push(response.data.games[game]);
+			// delete game listener
+			listen(instance.querySelector(".deleteGame"), "click", function(event)
+			{
+				Micro.call({action: "deleteGame", gameName: data.name}, redrawGamesList);
+			});
 		});
-		console.log(results);
-		r8_game.update(results);
 	}, console.error);
 }
 
+// create game listener
 listen("#createNewGame", "submit", function(event)
 {
 	event.preventDefault();

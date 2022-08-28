@@ -1,7 +1,7 @@
 const path = require("path");
 const HERE = path.resolve(__dirname);
 const sleepless = require("sleepless");
-const L = sleepless.L.mkLog("--- api\t\t")(4);
+const L = sleepless.L.mkLog("--- api\t\t")(3);
 
 const DS = require("ds").DS;
 const configPath = path.resolve(__dirname, ".api.config.json");
@@ -27,7 +27,7 @@ module.exports = async function(input, _okay, _fail)
 
 	const okay = function(message, data)
 	{
-		L.D(`${message} | ${action} - ${sleepless.o2j(data)}`);
+		L.I(`${message} | ${action} - ${sleepless.o2j(data)}`);
 		_okay({ status: STATUS_CODES.OKAY, message, ...data });
 	}
 
