@@ -1,4 +1,4 @@
-export const APP_VERSION = "0.0.7 - Gorgon Gartrudenth";
+export const APP_VERSION = "0.0.8 - Holy Hopperwatches";
 
 /*
 Copyright 2015-2020 Sleepless Software Inc. All rights reserved.
