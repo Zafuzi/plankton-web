@@ -1,4 +1,5 @@
-import {listen, Micro} from "./lib/lib.js";
+import {APP_VERSION, listen, Micro} from "./lib/lib.js";
+
 console.log(document.title);
 
 listen("#reloadPage", "click", function(event)
@@ -21,6 +22,8 @@ listen("#callAPI-ping", "click", function(event)
 window.addEventListener("load", function()
 {
 	let link = window.location.href.split("/").pop();
+	
+	document.title = `Plankton | ${APP_VERSION}`
 	document.querySelector(`[href="/${link}"]`).classList.add("active");
 	
 	let stylesheets = document.querySelectorAll("link[rel='preload']");
