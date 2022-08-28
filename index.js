@@ -88,36 +88,25 @@ app.use(async function(req, res, next)
 		});
 	}
 	
-	let parsedURL = url.parseURL(req.url, {
+	const parsedURL = url.parseURL(req.url, {
 		baseURL: req.url
 	}); 
 	
 	let route = parsedURL.path[0];
-	
-	let searchParams = new URLSearchParams(parsedURL.query);
-	
-	
-	if(route === null || route === undefined)
-	{
-		next();
-		return false;
-	}
-	
 	if(route === "")
 	{
-		await applyLayout("home/home.html");
-		return true;
+		route = "home";
 	}
+
+	const searchParams = new URLSearchParams(parsedURL.query);
+	//console.log(parsedURL.path, req.url)
 	
-	if(route === "about")
-	{
-		await applyLayout("about/about.html");
-		return true;
-	}
+	const routes = require("./routes");
 	
-	if(route === "editor")
+	if(routes[route])
 	{
-		await applyLayout("editor/editor.html");
+		L.D(routes[route]);
+		await applyLayout(routes[route].view);
 		return true;
 	}
 	
