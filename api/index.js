@@ -16,7 +16,8 @@ const STATUS_CODES = {
 // get all the methods we want to be able to call here
 imported_modules = { 
 	...require("./rpc_ping.js"), 
-	...require("./rpc_manageGames.js") 
+	...require("./rpc_manageGames.js"),
+	...require("./rpc_editor.js")
 }
 
 module.exports = async function(input, _okay, _fail)

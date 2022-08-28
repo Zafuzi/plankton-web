@@ -268,15 +268,15 @@ export const Micro = {
 		{
 			_okay = console.log;
 		}
-		
+
 		if(!(_fail instanceof Function))
 		{
 			_fail = console.error;
 		}
-		
+
 		const MISSING_RESPONSE = {error: "missing api response"};
 		const CALL_FAILED = {error: "api call failed"};
-		
+
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST', '/api/');
 		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -285,7 +285,7 @@ export const Micro = {
 		xhr.onload = function()
 		{
 			if(xhr.status !== 200)
-			{ 
+			{
 				console.error(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
 				_fail(JSON.parse(xhr?.response || MISSING_RESPONSE));
 			}
@@ -315,7 +315,7 @@ export const listen = function(selector, eventType, onEventFunction)
 		console.error("Missing something on listener...");
 		return false;
 	}
-	
+
 	// handle single HTMLElement
 	if(selector instanceof HTMLElement)
 	{
@@ -326,13 +326,13 @@ export const listen = function(selector, eventType, onEventFunction)
 	// Handle multiple HTMLElements in an array
 	if(selector instanceof Array)
 	{
-		selector.forEach(s=>
+		selector.forEach(s =>
 		{
 			if(s instanceof HTMLElement)
 			{
 				s.addEventListener(eventType, onEventFunction);
 			}
-			
+
 			if(s instanceof String)
 			{
 				let elements = document.querySelectorAll(s);
@@ -352,7 +352,7 @@ export const listen = function(selector, eventType, onEventFunction)
 				}
 			}
 		});
-		
+
 		return true;
 	}
 
@@ -378,3 +378,18 @@ export const listen = function(selector, eventType, onEventFunction)
 	return true;
 };
 
+export const getQueryData = function()
+{
+	let o = {};
+	let s = document.location.search;
+	if(s)
+	{
+		let kv = s.substring(1).split("&");
+		for(let i = 0; i < kv.length; i++)
+		{
+			let aa = kv[i].split("=");
+			o[aa[0]] = decodeURIComponent(aa[1]);
+		}
+	}
+	return o;
+};
