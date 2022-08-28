@@ -98,10 +98,10 @@ input[type=password],
 input[type=username],
 input[type=email] {
 	padding: 8px 16px;
-	background-color: var(--dark);
+	background-color: var(--lighter);
 	border: 2px solid var(--neutral);
 	border-radius: var(--input-radius);
-	color: var(--lightest);
+	color: var(--darker);
 }
 
 footer {
@@ -121,7 +121,7 @@ footer {
 /* CLASSES */
 .button {
 	font-weight: bold;
-	border: 2px solid var(--neutral-dark);
+	border: 2px solid var(--dark);
 	border-radius: var(--input-radius);
 	padding: 4px 12px;
 	transition: box-shadow 0.1s ease-in-out;
@@ -147,6 +147,11 @@ footer {
 .button.button-positive {
 	color: var(--lighter);
 	background-color: var(--positive);
+}
+
+.button.button-assertive {
+	color: var(--lighter);
+	background-color: var(--assertive);
 }
 
 .button:hover {

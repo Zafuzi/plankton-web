@@ -1,8 +1,26 @@
 <link rel="stylesheet" href="/views/home/home.css">
 
-<section class="flex flow-column align-center gap-8">
-	<h1>Home <i class="ion-android-home"></i></h1>
-	<p>App Version: <block><span id="r8_version">__version__</span></block></p>
+<section class="flex flow-column gap-8" id="dashboard">
+	<article>
+		<div class="flex flow-row-wrap align-center justify-space-between gap-8">
+			<h2>All Games <i class="ion-ios-game-controller-a"></i></h2>
+			<form class="flex flow-row align-stretch gap-8" id="createNewGame">
+				<input type="text" placeholder="New game name" id="newGameName" required min="3" max="100">
+				<button class="button button-positive">New Game</button>
+			</form>
+		</div>
+		<block>
+			<div class="flex flow-row align-center gap-24 justify-space-between gameList__game" id="r8_game">
+				<a href="/editor/__name__" class="flex flow-column gap-8"> 
+					<h3>__name__ </h3>
+					<small>__version__ </small>
+				</a>
+				<div class="flex flow-row align-stretch gap-16 gameList__action">
+					<button class="button button-assertive deleteGame"> <i class="ion-close"></i> </button>
+				</div>
+			</div>
+		</block>
+	</article>
 </section>
 
 <script type="module" defer async src="/views/home/home.js"></script>
