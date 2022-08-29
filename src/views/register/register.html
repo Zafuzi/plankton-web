@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/views/register/register.css">
+
+<section>
+	<form class="flex flow-column gap-8" id="registerForm">
+		<h1>Register</h1>
+		
+		<label for="username">Username: </label>
+		<input type="text" placeholder="username" name="username" id="username" required>
+		
+		<br/>
+		<label for="email">Email: </label>
+		<input type="email" placeholder="email" name="email" id="email" required>
+		
+		<br/>
+		<label for="password">Password: </label>
+		<input type="password" placeholder="password" name="password" id="password" required>
+		
+		<br/>
+		<button class="button button-positive margin-left-auto">Submit</button>
+		
+		<p>
+			Already have an account?
+			<a href="/login">Login here.</a>
+		</p>
+	</form>
+</section>
+
+<script type="module" src="/views/register/register.mjs"></script>

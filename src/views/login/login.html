@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/views/login/login.css">
+
+<section>
+	<form class="flex flow-column gap-8" id="loginForm">
+		<h1>Login</h1>
+		
+		<label for="username">Username: </label>
+		<input type="text" placeholder="username" name="username" id="username" required>
+		
+		<br/>
+		<label for="password">Password: </label>
+		<input type="password" placeholder="password" name="password" id="password" required>
+		
+		<br/>
+		<button class="button button-positive margin-left-auto">Submit</button>
+		
+		<p>
+			Need an account?
+			<a href="/register">Register here.</a>
+		</p>
+	</form>
+</section>
+
+<script type="module" src="/views/login/login.mjs"></script>
