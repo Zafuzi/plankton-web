@@ -127,7 +127,7 @@ footer {
 	transition: box-shadow 0.1s ease-in-out;
 
 	min-width: 44px;
-	max-width: 500px;
+	max-width: 600px;
 
 	flex-shrink: 0;
 	text-overflow: ellipsis;
@@ -174,7 +174,9 @@ footer {
 .margin-auto { margin: auto; }
 .margin-top { margin-top: 8px; }
 .margin-right { margin-right: 8px; }
+.margin-right-auto { margin-right: auto; }
 .margin-left { margin-left: 8px; }
+.margin-left-auto { margin-left: auto; }
 .margin-bottom { margin-bottom: 8px; }
 .margin { margin: 8px; }
 

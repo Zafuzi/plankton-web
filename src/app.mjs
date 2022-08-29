@@ -26,11 +26,11 @@ window.addEventListener("load", function()
 	
 	if(route !== "editor")
 	{
-		document.querySelector(`[href="/editor"]`).classList.add("hid");
+		document.querySelector(`[href="/editor"]`)?.classList.add("hid");
 	}
 	
 	document.title = `Plankton | ${APP_VERSION}`
-	document.querySelector(`[href="/${route}"]`).classList.add("active");
+	document.querySelector(`[href="/${route}"]`)?.classList.add("active");
 	
 	let stylesheets = document.querySelectorAll("link[rel='preload']");
 	stylesheets.forEach(function(stylesheet)
