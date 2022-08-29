@@ -21,16 +21,17 @@ module.exports = async function(input, _okay, _fail)
 	delete require.cache[module.filename];	// always reload
 	
 	const {action} = input;
+	L.I(`----->\t${action}`);
 
 	const okay = function(message, data)
 	{
-		L.I(`${message} | ${action} - ${sleepless.o2j(data)}`);
+		L.I(`<-----\t${sleepless.o2j(data)}`);
 		_okay({ status: STATUS_CODES.OKAY, message, ...data });
 	}
 
 	const fail = function(message, data, status)
 	{
-		L.E(`${message} | ${action} - ${sleepless.o2j(data)}`);
+		L.E(`<-----\t${sleepless.o2j(data)}`);
 		_fail({ status: status || STATUS_CODES.USER_ERROR, message, ...data });
 	}
 

@@ -22,7 +22,7 @@ const url = require("whatwg-url");
 const HERE  = path.dirname(module.filename);
 let app = require( "rpc" )( "/api/", HERE + "/api/", { cors: true, dev: true } );
 
-const L = sleepless.log5.mkLog("--- Micro\t\t")(5);
+const L = sleepless.log5.mkLog("--- Plankton\t\t")(5);
 
 app.use((req, res, next) =>
 {
@@ -105,7 +105,7 @@ app.use(async function(req, res, next)
 	
 	if(routes[route])
 	{
-		L.D(routes[route]);
+		L.D("<-----\t" + sleepless.o2j(routes[route]));
 		await applyLayout(routes[route].view);
 		return true;
 	}

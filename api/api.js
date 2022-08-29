@@ -9,6 +9,7 @@
 }
 	*/
 module.exports = {
+	...require("./rpc_authenticate"),
 	...require("./rpc_manageGames"),
 	...require("./rpc_editor"),
 }

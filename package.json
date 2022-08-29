@@ -2,10 +2,12 @@
   "version": "0.0.1",
   "dependencies": {
     "ds": "^1.4.2",
+    "mysql8": "^2.17.3",
     "path": "^0.12.7",
     "rpc": "^3.3.3",
     "serve-static": "^1.15.0",
     "sleepless": "^4.9.0",
+    "sleepless-users": "^4.0.1",
     "sqlite": "^4.1.2",
     "whatwg-url": "^11.0.0"
   },
